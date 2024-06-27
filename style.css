@@ -1,0 +1,322 @@
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background: #111;
+}
+
+*{
+    box-sizing: border-box;    
+}
+
+.logo {
+    font-size: 3em;
+    color: #f1f2f5;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #343434;
+    padding: 10px; /* Add padding */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 5); /* Add box shadow */
+}
+
+
+h1, h3 {
+    font-weight: 400;
+}
+
+.weather-app{
+    min-height: 100vh;
+    background-image: url(
+        /images/day/clear.jpg
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    position: relative;
+    transition: 500ms;
+    opacity: 1; /*change to '0' once the whole app is closed*/
+}
+
+.weather-app::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    flex-direction: column;
+    padding: 8em 3em 4em 3em;
+}
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-weather {
+    background-color: rgba(37, 37, 37, 0.7); /* Replace 0.5 with your desired opacity value */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 1em;
+}
+
+.city-time,
+.temp,
+.weather {
+    margin: 0 1em;
+}
+
+.city-time h1 {
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 3em;
+}
+
+.city-time small {
+    display: block; 
+    font-size: 1.2em;
+}
+
+/* Add space between month and day */
+.city-time .date {
+    margin-left: 0.5em; 
+}
+
+
+.temp {
+    font-size: 7em;
+    margin: 0;
+}
+
+.weather img {
+    display: block;
+    margin: 0.5em 0;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+}
+
+.condition {
+    margin-right: px; /* Adjust margin for spacing */
+}
+
+
+.panel {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: 
+        rgba(110, 110, 110, 0.25);
+    box-shadow: 
+        0 8px 32px 0
+        rgba(0, 0, 0, 0.52);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:  
+        1px solid
+        rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    padding: 3em 2em;
+    overflow-y: scroll;
+}
+
+.panel form {
+    margin-bottom: 2em;
+}
+
+.submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #fa6d1b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+.submit:hover {
+    background: #fff !important;
+    color: #000;
+}
+
+.search {
+    background: none;
+    border: none;
+    border-bottom: 1px #ccc solid;
+    padding: 0 1em 0.5em 0;
+    width: 80%;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.search::placeholder {
+    color: #ccc;
+}
+
+.panel ul {
+    padding: 0 0 0.5em 0;
+    margin: 2em 0;
+    border-bottom: 1px #ffffff solid;
+}
+
+.panel ul li {
+    color: #cfcece;
+    margin: 2.5em 0;
+}
+
+.panel ul h2 {
+    margin: 1em ;
+}
+
+
+.city {
+    display: block;
+    cursor: pointer;
+}
+
+.city:hover {
+    color: #fff;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.details li {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Align items with space between */
+    margin-bottom: 10px; /* Add margin for spacing between list items */
+}
+
+.details li span {
+    margin-right: 10px;
+    font-size: 1.4em;
+}
+
+.details li i {
+    margin-right: 1.2em; /* Add margin to the right of the icon for spacing */
+    margin-left: 1.2em;
+}
+
+.options {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.cloudy-icon{
+    margin-left: 1em;
+}
+
+.wind-icon {
+    margin-left: 2.2em; /* Move the wind icon to the far right */
+}
+
+.humidity-icon {
+    margin-left: 0.5em; /* Adjust the margin to create space between the icon and the text */
+}
+
+.forecast-container {
+    background-color: rgba(143, 143, 143, 0.5); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 2px; /* Add some space between the forecast section and other content */
+    border-bottom: 2px solid #f1f2f5; /* Add a solid bottom border */
+}
+
+.forecast-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Add flexbox display */
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.forecast-list li {
+    flex: 1 0 0; /* Allow items to grow equally and not shrink */
+    margin: 0 10px; /* Add spacing between forecast items */
+    text-align: center; /* Center-align forecast items */
+    max-width: 150px; /* Limit maximum width of forecast items */
+    margin-bottom: 10px;
+}
+
+
+.forecast-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.forecast-icon {
+    width: 40px; /* Adjust icon size as needed */
+    margin-right: 10px;
+}
+
+.forecast-temp {
+    font-weight: bold;
+}
+
+.forecast-condition {
+    margin-top: 15px;
+    color: #d6d6d6;
+    margin-bottom: 3px;
+}
+
+/* Add media queries for responsive design below */
+
+@media screen and (max-width: 800px) {
+    .panel, .container {
+        position: relative;
+        width: 100%;
+        top: initial;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+     html  {
+        font-size: 12px;
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+    .details {
+        flex-direction: column; 
+    }
+  }
+  
+  @media screen and (max-height: 300px) {
+    .weather-app {
+       min-height: 40em;
+    }
+  }
+  
